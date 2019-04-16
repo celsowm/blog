@@ -33,6 +33,9 @@ class AlbumsTable extends Table
         $this->setTable('albums');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+        $this->hasMany('Photos')
+                ->setForeignKey('foreign_key')
+                ->setConditions(['Photos.model'=> 'Photo']);
     }
 
     /**
